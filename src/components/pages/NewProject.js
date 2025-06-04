@@ -16,14 +16,14 @@ function NewProject() {
         fetch('http://localhost:5000/projects', {
             method: 'post',
             headers: {
-                'Context-type': 'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify(project)
         })
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            history('/projects', {message: 'Projeto criado com sucesso!'})
+            history('/projects', { state: {message: 'Projeto criado com sucesso!'} })
         })
         .catch((err) => console.log(err))
     }
