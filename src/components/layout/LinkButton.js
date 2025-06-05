@@ -1,4 +1,4 @@
-import styles from './LinkButtom.module.css'
+import styles from './styles/LinkButtom.module.css'
 import { Link } from 'react-router-dom'
 
 function LinkButton({to, text}) {
