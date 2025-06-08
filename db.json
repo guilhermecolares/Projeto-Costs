@@ -32,28 +32,6 @@
       "budget": "41344",
       "cost": 0,
       "services": []
-    },
-    {
-      "id": "abfc",
-      "categorias": {
-        "id": "2",
-        "name": "Planejamento"
-      },
-      "name": "dasdasd",
-      "budget": "132413",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "58a7",
-      "name": "Projete TESTE 3x0",
-      "budget": "541",
-      "categorias": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
     }
   ],
   "categorias": [
