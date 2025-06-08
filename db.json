@@ -3,7 +3,7 @@
     {
       "id": "a63c",
       "name": "Projete TESTE",
-      "budget": "2312",
+      "budget": "7777",
       "categorias": {
         "id": "1",
         "name": "Infra"
@@ -29,7 +29,7 @@
         "name": "Design"
       },
       "name": "Projeto kappa joggers",
-      "budget": "41344",
+      "budget": "7777",
       "cost": 0,
       "services": []
     }
