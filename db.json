@@ -32,6 +32,17 @@
       "budget": "7777",
       "cost": 0,
       "services": []
+    },
+    {
+      "name": "Projeto aviadado 47.7",
+      "budget": "4123",
+      "categorias": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "services": [],
+      "id": "jXWqFrB"
     }
   ],
   "categorias": [
