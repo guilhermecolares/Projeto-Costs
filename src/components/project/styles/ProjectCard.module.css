@@ -2,7 +2,7 @@
     padding: 1em;
     border: 1px solid #7a7a7a;
     border-radius: 5px;
-    width: 24%;
+    width: 300px;
     margin: 0.5%;
 }
 
@@ -27,6 +27,8 @@
     margin-top: 1.2em;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3em;
 }
 
 .project_card_actions a,
@@ -38,12 +40,13 @@
     color: #222;
     font-size: .9em;
     padding: .6em 1em;
-    margin-right: 1em;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.5s;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
 
 .project_card_actions svg {
