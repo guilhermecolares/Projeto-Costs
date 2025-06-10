@@ -8,6 +8,7 @@ import Container from '../layout/Container'
 import ProjectForm from '../project/ProjectForm'
 import Message from '../layout/Message'
 import ServiceForm from '../service/ServiceForm'
+import ServiceCard from '../service/ServiceCard'
 
 import { parse, v4 as uuidv4 } from 'uuid'
 
@@ -15,6 +16,7 @@ function Project() {
 
     const { id } = useParams()
     const [project, setProject] = useState([])
+    const [services, setServices] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
@@ -31,6 +33,7 @@ function Project() {
             .then((response) => response.json())
             .then((data) => {
                 setProject(data)
+                setServices(data.services)
             })
             .catch((err) => console.log(err))
             }, (Math.random() * (1 - 0) + 0) * 1000)
@@ -42,6 +45,10 @@ function Project() {
 
     function toggleServiceForm() {
         setShowServiceForm(!showServiceForm)
+    }
+
+    function removeService() {
+
     }
 
     function createService(projectUpdateFromForm) {
@@ -80,6 +87,7 @@ function Project() {
         .then(data => {
             console.log(data)
             setProject(data)
+            setServices(data.services)
             setShowServiceForm(false)
             setMessage(`Serviço criado com sucesso! (${lastService.nameService}: R$${lastServiceCost})`)
             setType('success')
@@ -118,6 +126,7 @@ function Project() {
         .then(response => response.json())
         .then(data => {
             setProject(data)
+            setServices(data.services)
             setShowProjectForm(!showProjectForm)
             setMessage('Projeto editado com sucesso!')
             setType('success')
@@ -175,7 +184,20 @@ function Project() {
                         </div>
                             <h2>Serviços</h2>
                             <Container customClass='start'>
-                                <p>Itens de serviço</p>
+                                {services.length > 0 && 
+                                    services.map(service => (
+                                        <ServiceCard 
+                                            id={service.id}
+                                            name={service.nameService}
+                                            cost={service.costService}
+                                            description={service.descriptionService}
+                                            key={service.id}
+                                            handleRemove={removeService}
+                                        />
+                                    ))
+                                }
+
+                                {services.length === 0 && <p>Não há serviços cadastrados.</p>}
                             </Container>
                     </Container>
                 </div>

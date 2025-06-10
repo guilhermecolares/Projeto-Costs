@@ -8,7 +8,7 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 333,
+      "cost": 433,
       "services": [
         {
           "nameService": "Putaria",
@@ -27,6 +27,12 @@
           "costService": "443",
           "descriptionService": "413414",
           "id": "bcdbd2fd-4d05-4b7d-89af-11e3858f0902"
+        },
+        {
+          "nameService": "palmeiras 1 x 0 porto",
+          "costService": "100",
+          "descriptionService": "413414",
+          "id": "20f6ac99-d4ab-452d-b3d0-a60f1d0c6b2f"
         }
       ]
     },
@@ -38,8 +44,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 80,
+      "services": [
+        {
+          "nameService": "Contratar um tecnico pra seleção brasileira",
+          "costService": "80",
+          "descriptionService": "sei lá quem éKKKKKKKKKKKKK",
+          "id": "56dbbf74-1ab2-4862-8e01-7b431fbace82"
+        }
+      ]
     },
     {
       "id": "8675",
