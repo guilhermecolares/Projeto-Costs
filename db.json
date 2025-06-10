@@ -3,13 +3,32 @@
     {
       "id": "a63c",
       "name": "Projete TESTE",
-      "budget": "7777",
+      "budget": "777",
       "categorias": {
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": []
+      "cost": 333,
+      "services": [
+        {
+          "nameService": "Putaria",
+          "costService": "100",
+          "descriptionService": "413414",
+          "id": "cdc9270e-9e55-4f71-8cb7-d08bf061bd02"
+        },
+        {
+          "nameService": "Putaria2.0",
+          "costService": "300",
+          "descriptionService": "222",
+          "id": "c6a610c1-53cd-490b-9856-c28c89485032"
+        },
+        {
+          "nameService": "Aviados.gap",
+          "costService": "443",
+          "descriptionService": "413414",
+          "id": "bcdbd2fd-4d05-4b7d-89af-11e3858f0902"
+        }
+      ]
     },
     {
       "id": "a097",

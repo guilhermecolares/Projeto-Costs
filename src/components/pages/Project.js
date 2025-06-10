@@ -7,6 +7,9 @@ import Loader from '../layout/Loader'
 import Container from '../layout/Container'
 import ProjectForm from '../project/ProjectForm'
 import Message from '../layout/Message'
+import ServiceForm from '../service/ServiceForm'
+
+import { parse, v4 as uuidv4 } from 'uuid'
 
 function Project() {
 
@@ -39,6 +42,55 @@ function Project() {
 
     function toggleServiceForm() {
         setShowServiceForm(!showServiceForm)
+    }
+
+    function createService(projectUpdateFromForm) {
+
+        const lastService = projectUpdateFromForm.services[projectUpdateFromForm.services.length - 1]
+
+        lastService.id = uuidv4()
+
+        const lastServiceCost = parseFloat(lastService.costService)
+
+        const newCost = parseFloat(projectUpdateFromForm.cost) + parseFloat(lastServiceCost)
+
+        if(newCost > parseFloat(projectUpdateFromForm.budget)) {
+            console.log("createService: IF de ERRO ativado!");
+            setMessage('Orçamento de projeto estourado! o valor inserido não pode passar.')
+            setType('error')
+            projectUpdateFromForm.services.pop()
+            setTimeout(() => {
+                setMessage('');
+                setType('');
+                console.log("createService: Mensagem de erro zerada após timeout.");
+            }, 3000);
+            return false
+        }
+
+        project.cost = newCost
+
+        fetch(`http://localhost:5000/projects/${projectUpdateFromForm.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projectUpdateFromForm)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setMessage(`Serviço criado com sucesso! (${lastService.nameService}: R$${lastServiceCost})`)
+            setType('success')
+        })
+        .catch(err => {
+            console.error("DEBUG: Erro no fetch de adicionar serviço:", err); // Use console.error para destacar
+            setMessage('Ocorreu um erro ao adicionar o serviço.')
+            setType('error');
+            setTimeout(() => {
+                setMessage('')
+                setType('')
+            }, 3000)
+        })
     }
 
     function editPost(project) {
@@ -107,13 +159,17 @@ function Project() {
                             </button>
                             <div className={styles.project_info}>
                                 {showServiceForm && (
-                                    <div>Form do service</div>
+                                    <ServiceForm
+                                    handleSubmit={createService}
+                                    btnText='Adicionar Serviço'
+                                    projectData={project}
+                                    />
                                 )}
                             </div>
                         </div>
                             <h2>Serviços</h2>
                             <Container customClass='start'>
-                                <p>Itens de Serviços</p>
+                                <p>Itens de serviço</p>
                             </Container>
                     </Container>
                 </div>
