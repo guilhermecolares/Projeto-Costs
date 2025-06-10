@@ -47,8 +47,36 @@ function Project() {
         setShowServiceForm(!showServiceForm)
     }
 
-    function removeService() {
+    function removeService(id, costPraRemover) {
+        const servicesUpdated = project.services.filter(
+            (service) => service.id !== id
+            )
 
+        const projectUpdated = { ...project}
+
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated?.cost || 0) - parseFloat(costPraRemover || 0)
+        projectUpdated.rest = parseFloat(projectUpdated?.budget || 0) - projectUpdated.cost
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projectUpdated)
+        })
+        .then(response => response.json())
+        .then(data => {
+            setProject(projectUpdated)
+            setServices(servicesUpdated)
+            setMessage('Serviço removido com sucesso!')
+            setType('success')
+            setTimeout(() => {
+                setMessage('')
+                setType('')
+            }, 3000);
+        })
+        .catch(err => console.log(err))
     }
 
     function createService(projectUpdateFromForm) {
@@ -60,8 +88,6 @@ function Project() {
         const lastServiceCost = parseFloat(lastService.costService)
 
         const newCost = parseFloat(projectUpdateFromForm.cost) + parseFloat(lastServiceCost)
-
-        const restBudget = parseFloat(projectUpdateFromForm?.budget) - parseFloat(projectUpdateFromForm?.cost)
 
         if(newCost > parseFloat(projectUpdateFromForm.budget)) {
             console.log("createService: IF de ERRO ativado!");
@@ -77,7 +103,8 @@ function Project() {
         }
 
         projectUpdateFromForm.cost = newCost
-        projectUpdateFromForm.rest = restBudget
+
+        projectUpdateFromForm.rest = parseFloat(projectUpdateFromForm?.budget || 0) - projectUpdateFromForm.cost
 
         console.log('Budget:', projectUpdateFromForm?.budget);
         console.log('Cost:', projectUpdateFromForm?.Cost);

@@ -8,52 +8,9 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 511,
-      "rest": 298,
-      "services": [
-        {
-          "nameService": "Putaria",
-          "costService": "100",
-          "descriptionService": "413414",
-          "id": "cdc9270e-9e55-4f71-8cb7-d08bf061bd02"
-        },
-        {
-          "nameService": "Putaria2.0",
-          "costService": "300",
-          "descriptionService": "222",
-          "id": "c6a610c1-53cd-490b-9856-c28c89485032"
-        },
-        {
-          "nameService": "Aviados.gap",
-          "costService": "443",
-          "descriptionService": "413414",
-          "id": "bcdbd2fd-4d05-4b7d-89af-11e3858f0902"
-        },
-        {
-          "nameService": "palmeiras 1 x 0 porto",
-          "costService": "100",
-          "descriptionService": "413414",
-          "id": "20f6ac99-d4ab-452d-b3d0-a60f1d0c6b2f"
-        },
-        {
-          "nameService": "Cavalos",
-          "costService": "3",
-          "descriptionService": "123",
-          "id": "57ae953e-a395-4c3f-8c4c-166a34578ca7"
-        },
-        {
-          "nameService": "CavalosV2",
-          "costService": "43",
-          "descriptionService": "1234",
-          "id": "696c0d52-040b-443b-a2af-e94708bca06d"
-        },
-        {
-          "nameService": "CavalosV3",
-          "costService": "32",
-          "descriptionService": "222",
-          "id": "2df5ad19-5fdc-4065-b78f-38a6d1b1e420"
-        }
-      ]
+      "cost": 0,
+      "rest": 777,
+      "services": []
     },
     {
       "id": "a097",
@@ -91,14 +48,8 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 95,
+      "cost": 75,
       "services": [
-        {
-          "nameService": "viado1.0",
-          "costService": "20",
-          "descriptionService": "carava",
-          "id": "9d6bc89e-35eb-489c-b47d-67a46fc10ac0"
-        },
         {
           "nameService": "caros",
           "costService": "43",
@@ -113,7 +64,7 @@
         }
       ],
       "id": "jXWqFrB",
-      "rest": 4060
+      "rest": 4048
     }
   ],
   "categorias": [
