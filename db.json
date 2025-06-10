@@ -8,7 +8,8 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 433,
+      "cost": 511,
+      "rest": 298,
       "services": [
         {
           "nameService": "Putaria",
@@ -33,6 +34,24 @@
           "costService": "100",
           "descriptionService": "413414",
           "id": "20f6ac99-d4ab-452d-b3d0-a60f1d0c6b2f"
+        },
+        {
+          "nameService": "Cavalos",
+          "costService": "3",
+          "descriptionService": "123",
+          "id": "57ae953e-a395-4c3f-8c4c-166a34578ca7"
+        },
+        {
+          "nameService": "CavalosV2",
+          "costService": "43",
+          "descriptionService": "1234",
+          "id": "696c0d52-040b-443b-a2af-e94708bca06d"
+        },
+        {
+          "nameService": "CavalosV3",
+          "costService": "32",
+          "descriptionService": "222",
+          "id": "2df5ad19-5fdc-4065-b78f-38a6d1b1e420"
         }
       ]
     },
@@ -72,9 +91,29 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": [],
-      "id": "jXWqFrB"
+      "cost": 95,
+      "services": [
+        {
+          "nameService": "viado1.0",
+          "costService": "20",
+          "descriptionService": "carava",
+          "id": "9d6bc89e-35eb-489c-b47d-67a46fc10ac0"
+        },
+        {
+          "nameService": "caros",
+          "costService": "43",
+          "descriptionService": "534",
+          "id": "e86aea77-9064-4f94-98fc-c8974885e7e6"
+        },
+        {
+          "nameService": "Putarias",
+          "costService": "32",
+          "descriptionService": "222",
+          "id": "758ecd44-a42e-4f1e-ac6a-f67b233d55fa"
+        }
+      ],
+      "id": "jXWqFrB",
+      "rest": 4060
     }
   ],
   "categorias": [

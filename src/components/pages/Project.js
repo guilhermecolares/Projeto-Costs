@@ -61,6 +61,8 @@ function Project() {
 
         const newCost = parseFloat(projectUpdateFromForm.cost) + parseFloat(lastServiceCost)
 
+        const restBudget = parseFloat(projectUpdateFromForm?.budget) - parseFloat(projectUpdateFromForm?.cost)
+
         if(newCost > parseFloat(projectUpdateFromForm.budget)) {
             console.log("createService: IF de ERRO ativado!");
             setMessage('Orçamento de projeto estourado! o valor inserido não pode passar.')
@@ -75,6 +77,10 @@ function Project() {
         }
 
         projectUpdateFromForm.cost = newCost
+        projectUpdateFromForm.rest = restBudget
+
+        console.log('Budget:', projectUpdateFromForm?.budget);
+        console.log('Cost:', projectUpdateFromForm?.Cost);
 
         fetch(`http://localhost:5000/projects/${projectUpdateFromForm.id}`, {
             method: 'PATCH',
@@ -155,6 +161,9 @@ function Project() {
                                     </p>
                                     <p>
                                         <span>Total Gasto:</span> R${project?.cost}
+                                    </p>
+                                    <p>
+                                        <span>Orçamento restante:</span> R${project?.rest}
                                     </p>
                                 </div>
                             ) : (
