@@ -67,7 +67,7 @@ function Project() {
             return false
         }
 
-        project.cost = newCost
+        projectUpdateFromForm.cost = newCost
 
         fetch(`http://localhost:5000/projects/${projectUpdateFromForm.id}`, {
             method: 'PATCH',
@@ -79,8 +79,14 @@ function Project() {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            setProject(data)
+            setShowServiceForm(false)
             setMessage(`Serviço criado com sucesso! (${lastService.nameService}: R$${lastServiceCost})`)
             setType('success')
+            setTimeout(() => {
+                setMessage('')
+                setType('')
+            }, 3000)
         })
         .catch(err => {
             console.error("DEBUG: Erro no fetch de adicionar serviço:", err); // Use console.error para destacar
